@@ -4,6 +4,7 @@ import { useState } from 'react';
 import products from './goods';
 
 export default function Header() {
+    const isLogin = localStorage.getItem('login');
     const navigate = useNavigate();
     const location = useLocation();
     const isHome = location.pathname === '/';
@@ -14,6 +15,14 @@ export default function Header() {
 
     const toggleDropdown = () => {
         setIsDropdownOpen((prev) => !prev);
+    };
+
+    const onClickLogin = () => {
+        if (isLogin) {
+            return;
+        } else {
+            navigate('/login');
+        }
     };
 
     return (
@@ -50,8 +59,8 @@ export default function Header() {
                     <h1 className="header-title">BitBack</h1>
                 </div>
                 <div className="header-icon-div">
-                    <img src="/img/account.png" className="header-icon" onClick={() => navigate('/login')} />
-                    <img src="/img/cart.png" className="header-icon2" />
+                    <img src="/img/account.png" className="header-icon" onClick={onClickLogin} />
+                    <img src="/img/cart.png" className="header-icon2" onClick={() => navigate('/myCart')} />
                 </div>
             </div>
             <div className="header-categories">
