@@ -5,14 +5,14 @@ import './main.css';
 function Main() {
     const [cart, setCart] = useState([]);
 
-    useEffect(() => {
-        const storedCart = JSON.parse(localStorage.getItem('cart') || []);
-    }, []);
+    // // useEffect(() => {
+    //     const storedCart = JSON.parse(localStorage.getItem('cart') || []);
+    // }, []);
 
     // cart가 바뀔 때마다 localStorage에 저장
-    useEffect(() => {
-        localStorage.setItem('cart', JSON.stringify(cart));
-    }, [cart]);
+    // useEffect(() => {
+    //     localStorage.setItem('cart', JSON.stringify(cart));
+    // }, [cart]);
 
     const addToCart = (product) => {
         setCart((prev) => {
