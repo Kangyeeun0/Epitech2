@@ -1,0 +1,69 @@
+.cardList-card-total {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 100px;
+    justify-content: center;
+    @media (max-width: 1024px) {
+        grid-template-columns: repeat(3, 1fr); /* 화면 줄어들면 3개 */
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr); /* 태블릿 이하 2개 */
+    }
+
+    @media (max-width: 480px) {
+        grid-template-columns: 1fr; /* 모바일은 1개 */
+    }
+}
+
+.cardList-card-div {
+    width: calc(25% - 18px);
+    max-width: calc(25% - 18px);
+    height: 30%;
+    min-height: 250px;
+    background-color: #f9f9f9;
+    padding: 16px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+
+    @media (max-width: 1024px) {
+        width: calc(30% - 18px);
+        max-width: calc(30% - 18px);
+    }
+
+    @media (max-width: 768px) {
+        width: calc(50% - 18px);
+        max-width: calc(50% - 18px);
+    }
+
+    @media (max-width: 480px) {
+        width: 60%;
+    }
+}
+
+.cardList-card-img {
+    width: 100%;
+    transition: transform 0.3s;
+    margin: auto;
+
+    .group:hover & {
+        transform: scale(1.05);
+    }
+}
+
+.cardList-goods-title {
+    font-size: 16px;
+    color: black;
+    margin-top: 10px;
+}
+
+.cardList-goods-price {
+    margin-top: 10px;
+}
