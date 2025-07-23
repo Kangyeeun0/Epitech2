@@ -1,0 +1,28 @@
+.loginWrap {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 500px;
+}
+
+.register-title {
+    margin-bottom: 5%;
+    font-size: 45px;
+}
+
+.inputWrap {
+    width: 400px;
+}
+
+.register-label {
+    width: 20px;
+}
+
+.signup {
+    width: 402px;
+    height: 50px;
+    background: var(--primary);
+    color: white;
+    margin-top: 10px;
+}
