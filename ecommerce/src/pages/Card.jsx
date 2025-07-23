@@ -17,11 +17,25 @@ export default function Card() {
     return (
         <>
             <div className="card-total">
-                <img src={product.image} alt={product.name} style={{ width: '400px', marginRight: '20px' }} />
+                <img
+                    src={product.image}
+                    alt={product.name}
+                    style={{
+                        width: '400px',
+                        aspectRatio: '1/1',
+                        objectFit: 'cover',
+                        margin: '50px',
+                        border: 0,
+                        borderRadius: '10px',
+
+                    }}
+                />
+                
                 <div>
                     <h2 className="card-name">{product.name}</h2>
-                    <p className="card-price">{product.price}</p>
-                    <p style={{ margin: '0', fontFamily: 'Roboto, sans-serif', fontWeight: 200 }}>Quantity</p>
+                    <p className="card-description" style={{ margin: 0, fontFamily: 'Roboto, sans-serif', fontWeight: 200, fontSize: '20px' }}>{product.description}</p>
+                    <p className="card-price" style={{ fontWeight: 'bold' }}>{product.price}€</p>
+                    <p style={{ margin: '0', fontFamily: 'Roboto, sans-serif', fontWeight: 200 ,fontSize: '20px' }}>Quantity</p>
                     <div style={{ display: 'flex', alignItems: 'center', marginTop: '5px' }}>
                         <button onClick={handleDecrease} className="card-quantity-button">
                             –
@@ -50,8 +64,8 @@ export default function Card() {
                     >
                         총 가격: {(parseFloat(product.price) * quantity).toFixed(2)}€
                     </p>
-                    <button className="card-cart-button"> Add to cart</button>
-                    <button className="card-paypal-button">
+                    <button className="card-cart-button" style={{ backgroundColor: '#0070ba', color: 'white', border: 'none', borderRadius: '5px', padding: '10px 20px', fontSize: '18px', fontWeight: 300, fontFamily: 'Roboto, sans-serif', cursor: 'pointer' ,marginRight: '20px'}}> Add to cart</button>
+                    <button className="card-paypal-button" style={{border: 'none', borderRadius: '5px', padding: '10px 20px', fontSize: '18px', fontWeight: 300, fontFamily: 'Roboto, sans-serif', cursor: 'pointer'}}>
                         Pay with <img src="/img/paypal.png" className="card-paypal-img" />
                     </button>
                 </div>
