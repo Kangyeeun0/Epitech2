@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import Modal from '../component/Modal';
 
 export default function Card() {
-
     const navigate = useNavigate();
 
     const [quantity, setQuantity] = useState(1);
@@ -20,7 +19,6 @@ export default function Card() {
         setCart(storedCart);
 
         console.log('storedCart', storedCart);
-
     }, []);
 
     // cart가 바뀔 때마다 localStorage에 저장
@@ -38,7 +36,7 @@ export default function Card() {
             }
         });
 
-      setIsModalOpen(true);
+        setIsModalOpen(true);
     };
 
     const handleIncrease = () => setQuantity((prev) => prev + 1);
@@ -66,15 +64,23 @@ export default function Card() {
                         margin: '50px',
                         border: 0,
                         borderRadius: '10px',
-
                     }}
                 />
-                
+
                 <div>
                     <h2 className="card-name">{product.name}</h2>
-                    <p className="card-description" style={{ margin: 0, fontFamily: 'Roboto, sans-serif', fontWeight: 200, fontSize: '20px' }}>{product.description}</p>
-                    <p className="card-price" style={{ fontWeight: 'bold' }}>{product.price}€</p>
-                    <p style={{ margin: '0', fontFamily: 'Roboto, sans-serif', fontWeight: 200 ,fontSize: '20px' }}>Quantity</p>
+                    <p
+                        className="card-description"
+                        style={{ margin: 0, fontFamily: 'Roboto, sans-serif', fontWeight: 200, fontSize: '20px' }}
+                    >
+                        {product.description}
+                    </p>
+                    <p className="card-price" style={{ fontWeight: 'bold' }}>
+                        {product.price}€
+                    </p>
+                    <p style={{ margin: '0', fontFamily: 'Roboto, sans-serif', fontWeight: 200, fontSize: '20px' }}>
+                        Quantity
+                    </p>
                     <div style={{ display: 'flex', alignItems: 'center', marginTop: '5px' }}>
                         <button onClick={handleDecrease} className="card-quantity-button">
                             –
@@ -109,15 +115,13 @@ export default function Card() {
                         Add to cart
                     </button>
                     <button className="card-paypal-button">
-
                         Pay with <img src="/img/paypal.png" className="card-paypal-img" />
                     </button>
                 </div>
 
-
                 {isModalOpen && (
                     <Modal isOpen={isModalOpen} onCloseCart={onCloseModalCart} onClose={() => setIsModalOpen(false)} />
-
+                )}
             </div>
         </>
     );
