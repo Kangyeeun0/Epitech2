@@ -94,19 +94,14 @@ export const Message = styled.p`
     font-size: 20px;
 `;
 
-export default function Modal({ isOpen, onClose }) {
-    const navigate = useNavigate();
-    const onClickCartButton = () => {
-        navigate('/myCart');
-    };
-
+export default function Modal({ isOpen, onCloseCart, onClose }) {
     return (
         <>
             <ModalContainer>
                 <ModalBackdrop>
                     <ModalContent>
                         <Message>✓ Item added to your cart</Message>
-                        <ViewCartBtn onClick={onClickCartButton}>View my cart</ViewCartBtn>
+                        <ViewCartBtn onClick={onCloseCart}>View my cart</ViewCartBtn>
 
                         <ExitBtn onClick={onClose}>Continue shopping</ExitBtn>
                     </ModalContent>

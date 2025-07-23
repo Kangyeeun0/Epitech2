@@ -100,3 +100,33 @@
     font-weight: 200;
     margin: 0;
 }
+
+.mycart-bottom-div {
+    border-top: 1px solid rgba(155, 154, 154, 0.7);
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 20px;
+}
+
+.cart-subtotal {
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.cart-subtotal-text {
+    font-size: 23px;
+    font-weight: 300;
+}
+
+.mycart-checkout-button {
+    width: 250px;
+    height: 50px;
+    border: none;
+    background-color: black;
+    color: white;
+    align-self: flex-end;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 200;
+    font-family: 'Roboto, sans-serif';
+}

@@ -10,13 +10,14 @@ export default function MyCart() {
     useEffect(() => {
         const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
         setCart(storedCart);
-        console.log('cart', cart);
+        console.log('cart', storedCart);
     }, []);
 
     // cart가 바뀔 때마다 localStorage에 저장
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart));
     }, [cart]);
+
     const removeFromCart = (id) => {
         setCart((prev) => prev.filter((item) => item.id !== id));
     };
@@ -36,7 +37,6 @@ export default function MyCart() {
             <div>
                 <h1 className="mycart-title">Your cart</h1>
             </div>
-
             <div>
                 {cart.length === 0 ? (
                     <div className="mycart-empty-div">
@@ -78,6 +78,21 @@ export default function MyCart() {
                     </>
                 )}
             </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <div className="mycart-bottom-div ">
+                    {cart.length > 0 && (
+                        <p className="cart-subtotal-text">
+                            <span className="cart-subtotal"> Subtotal:</span>{' '}
+                            {cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toLocaleString()}
+                        </p>
+                    )}
+                </div>
+                <div style={{ textAlign: 'end', fontWeight: '200' }}>Taxes and shipping calculated at checkout</div>
+                <button className="mycart-checkout-button">Check Out</button>
+            </div>
         </div>
     );
 }
+
+//acc: 누적 합계
