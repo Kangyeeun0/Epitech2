@@ -1,10 +1,13 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import products from '../component/goods';
 import './card.css';
 import { useEffect, useState } from 'react';
 import Modal from '../component/Modal';
 
 export default function Card() {
+
+    const navigate = useNavigate();
+
     const [quantity, setQuantity] = useState(1);
     const { id } = useParams();
     const product = products.find((item) => item.id === Number(id)); // id는 string이므로 숫자로 변환 필요
@@ -15,6 +18,9 @@ export default function Card() {
     useEffect(() => {
         const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
         setCart(storedCart);
+
+        console.log('storedCart', storedCart);
+
     }, []);
 
     // cart가 바뀔 때마다 localStorage에 저장
@@ -31,12 +37,19 @@ export default function Card() {
                 return [...prev, { ...product, quantity: 1 }];
             }
         });
-        setIsModalOpen(true);
+
+      setIsModalOpen(true);
     };
 
     const handleIncrease = () => setQuantity((prev) => prev + 1);
     const handleDecrease = () => {
         if (quantity > 1) setQuantity((prev) => prev - 1);
+    };
+
+    const onCloseModalCart = () => {
+        localStorage.setItem('cart', JSON.stringify(cart));
+        setIsModalOpen(false);
+        navigate('/myCart');
     };
 
     console.log('product', product);
@@ -100,7 +113,11 @@ export default function Card() {
                         Pay with <img src="/img/paypal.png" className="card-paypal-img" />
                     </button>
                 </div>
-                {isModalOpen && <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />}
+
+
+                {isModalOpen && (
+                    <Modal isOpen={isModalOpen} onCloseCart={onCloseModalCart} onClose={() => setIsModalOpen(false)} />
+
             </div>
         </>
     );
