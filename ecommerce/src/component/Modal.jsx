@@ -94,7 +94,9 @@ export const Message = styled.p`
     font-size: 20px;
 `;
 
+
 export default function Modal({ isOpen, onCloseCart, onClose }) {
+
     return (
         <>
             <ModalContainer>
@@ -102,7 +104,6 @@ export default function Modal({ isOpen, onCloseCart, onClose }) {
                     <ModalContent>
                         <Message>✓ Item added to your cart</Message>
                         <ViewCartBtn onClick={onCloseCart}>View my cart</ViewCartBtn>
-
                         <ExitBtn onClick={onClose}>Continue shopping</ExitBtn>
                     </ModalContent>
                 </ModalBackdrop>

@@ -10,7 +10,7 @@ export default function MyCart() {
     useEffect(() => {
         const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
         setCart(storedCart);
-        console.log('cart', storedCart);
+
     }, []);
 
     // cart가 바뀔 때마다 localStorage에 저장
@@ -37,6 +37,7 @@ export default function MyCart() {
             <div>
                 <h1 className="mycart-title">Your cart</h1>
             </div>
+
             <div>
                 {cart.length === 0 ? (
                     <div className="mycart-empty-div">
@@ -79,6 +80,7 @@ export default function MyCart() {
                 )}
             </div>
 
+
             <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <div className="mycart-bottom-div ">
                     {cart.length > 0 && (
@@ -96,3 +98,4 @@ export default function MyCart() {
 }
 
 //acc: 누적 합계
+
