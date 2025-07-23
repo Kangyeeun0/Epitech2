@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import './cardList.css';
-import products from './product';
+import products from './goods';
 
 export default function CardList() {
     const navigate = useNavigate();

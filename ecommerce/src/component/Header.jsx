@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import './header.css';
 import { useState } from 'react';
-import products from './product';
+import products from './goods';
 
 export default function Header() {
     const navigate = useNavigate();
@@ -50,7 +50,7 @@ export default function Header() {
                     <h1 className="header-title">BitBack</h1>
                 </div>
                 <div className="header-icon-div">
-                    <img src="/img/account.png" className="header-icon" />
+                    <img src="/img/account.png" className="header-icon" onClick={() => navigate('/login')} />
                     <img src="/img/cart.png" className="header-icon2" />
                 </div>
             </div>

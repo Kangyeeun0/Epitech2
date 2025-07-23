@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Main from './Main';
 import Header from './component/Header';
 import Card from './pages/Card';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 function App() {
     return (
@@ -11,6 +13,8 @@ function App() {
             <Routes>
                 <Route path="/" element={<Main />} />
                 <Route path="/product/:id" element={<Card />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signUp" element={<Register />} />
             </Routes>
         </BrowserRouter>
     );
