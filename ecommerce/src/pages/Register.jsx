@@ -61,7 +61,7 @@ export default function Register() {
             });
 
             alert('Registration successful! You can now log in.');
-            navigate('/');
+            navigate('/login');
         } catch (err) {
             // 에러 처리
             setError(err.response?.data?.message || 'An error occurred during registration.');
@@ -81,6 +81,8 @@ export default function Register() {
                                 type="text"
                                 name="username"
                                 value={formData.username}
+                                className="login-input"
+                                placeholder="Name"
                                 onChange={handleChange}
                                 required
                             />
@@ -89,7 +91,15 @@ export default function Register() {
                     <div className="inputWrap">
                         <label>
                             ID
-                            <input name="id" value={formData.id} id="memId" type="text" onChange={handleChange} />
+                            <input
+                                name="id"
+                                value={formData.id}
+                                id="memId"
+                                type="text"
+                                className="login-input"
+                                placeholder="ID"
+                                onChange={handleChange}
+                            />
                         </label>
                     </div>
                     <div className="inputWrap">
@@ -100,6 +110,8 @@ export default function Register() {
                                 value={formData.password}
                                 id="memPw"
                                 type="password"
+                                placeholder="Password"
+                                className="login-input"
                                 onChange={handleChange}
                             />
                         </label>

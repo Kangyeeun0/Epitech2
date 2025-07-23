@@ -35,15 +35,23 @@ export default function Login() {
 
     return (
         <div className="login-div">
-            <h1 className="title">LOGIN</h1>
+            <h1 className="login-title">LOGIN</h1>
             <input placeholder="ID" value={id} type="text" className="login-input" onChange={handleChangeId} />
-            <input placeholder="Password" type="password" value={pw} onChange={handleChangePw} />
+            <input
+                placeholder="Password"
+                type="password"
+                value={pw}
+                className="login-input"
+                onChange={handleChangePw}
+            />
             {error && <p style={{ color: 'red' }}>{error}</p>}
             <button className="login-button" onClick={handleLogin}>
                 LOGIN
             </button>
             <div className="login-signUp-button">
-                <p className="login-signUp-text">sign up</p>
+                <p className="login-signUp-text" onClick={() => navigate('/signUp')}>
+                    sign up
+                </p>
             </div>
         </div>
     );
