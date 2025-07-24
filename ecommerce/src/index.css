@@ -1,12 +1,28 @@
+@font-face {
+    font-family: 'LemonFunky';
+    src: url('../public/fonts/LemonFunky.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Tiny-Regular';
+    src: url('../public/fonts/Tiny5-LCD-Bold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
         'Droid Sans', 'Helvetica Neue', sans-serif;
     font-family: 'Libre Franklin', sans-serif;
-    font-family: 'Roboto, sans-serif';
+    /* font-family: 'Roboto, sans-serif'; */
+    font-family: 'LemonFunky', serif;
+    font-family: 'Tiny-Regular', serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #e7e7d9;
+    background-image: url('../public/img/vintage.png');
 }
 
 code {

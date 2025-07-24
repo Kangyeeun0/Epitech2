@@ -69,7 +69,8 @@ export default function Header() {
                 </div>
                 <div className="header-div">
                     <img src="/img/gamer.png" className="header-title-img" />
-                    <h1 className="header-title">BitBack</h1>
+                    <img src="/img/logo.png" style={{ width: '150px' }} />
+                    {/* <h1 className="header-title">BitBack</h1> */}
                 </div>
                 <div className="header-icon-div">
                     <img src="/img/account.png" className="header-icon" onClick={onClickLogin} />

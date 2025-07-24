@@ -32,7 +32,7 @@ export default function Card() {
             if (exists) {
                 return prev.map((item) => (item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item));
             } else {
-                return [...prev, { ...product, quantity: 1 }];
+                return [...prev, { ...product, quantity: quantity }];
             }
         });
 
@@ -71,17 +71,57 @@ export default function Card() {
                     <h2 className="card-name">{product.name}</h2>
                     <p
                         className="card-description"
-                        style={{ margin: 0, fontFamily: 'Roboto, sans-serif', fontWeight: 200, fontSize: '20px' }}
+                        style={{ margin: 0, fontFamily: 'Roboto, sans-serif', fontSize: '20px' }}
                     >
                         {product.description}
                     </p>
+                    {product.id == '3' ? (
+                        <div className="teacher-div">
+                            <img src="/img/teacher/angel.png" className="teacher-img" />
+                            <span className="rainbow-text">angel's Pick!</span>
+                        </div>
+                    ) : (
+                        ''
+                    )}
+                    {product.id == '1' ? (
+                        <div className="teacher-div">
+                            <img src="/img/teacher/Camille.png" className="teacher-img" />
+                            <span className="rainbow-text">Camille's Pick!</span>
+                        </div>
+                    ) : (
+                        ''
+                    )}
+                    {product.id == '2' ? (
+                        <div className="teacher-div">
+                            <img src="/img/teacher/clery.png" className="teacher-img" />
+                            <span className="rainbow-text">Clery's Pick!</span>
+                        </div>
+                    ) : (
+                        ''
+                    )}
+                    {product.id == '4' ? (
+                        <div className="teacher-div">
+                            <img src="/img/teacher/Pierre.png" className="teacher-img" />
+                            <span className="rainbow-text">Pirre's Pick!</span>
+                        </div>
+                    ) : (
+                        ''
+                    )}
+
                     <p className="card-price" style={{ fontWeight: 'bold' }}>
                         {product.price}€
                     </p>
-                    <p style={{ margin: '0', fontFamily: 'Roboto, sans-serif', fontWeight: 200, fontSize: '20px' }}>
-                        Quantity
-                    </p>
-                    <div style={{ display: 'flex', alignItems: 'center', marginTop: '5px' }}>
+                    <p style={{ margin: '0', fontSize: '22px', fontWeight: '500' }}>Quantity</p>
+                    <div
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            marginTop: '5px',
+                            border: '1px solid',
+                            width: 'fit-content',
+                            backgroundColor: 'white',
+                        }}
+                    >
                         <button onClick={handleDecrease} className="card-quantity-button">
                             –
                         </button>
@@ -89,25 +129,25 @@ export default function Card() {
                             style={{
                                 margin: '0 10px',
                                 fontSize: '25px',
-                                fontWeight: 200,
                                 fontFamily: 'Roboto, sans-serif',
+                                width: '25px',
+                                textAlign: 'center',
                             }}
                         >
                             {quantity}
                         </span>
-                        <button onClick={handleIncrease} className="card-quantity-button">
+                        <button onClick={handleIncrease} className="card-quantity-button2">
                             +
                         </button>
                     </div>
                     <p
                         style={{
                             marginTop: '10px',
-                            fontSize: '25px',
-                            fontFamily: 'Roboto, sans-serif',
-                            fontWeight: 300,
+                            fontSize: '28px',
+                            fontWeight: 'bold',
                         }}
                     >
-                        총 가격: {(parseFloat(product.price) * quantity).toFixed(2)}€
+                        Total: {(parseFloat(product.price) * quantity).toFixed(2)}€
                     </p>
 
                     <button className="card-cart-button" onClick={() => addToCart(product)}>
