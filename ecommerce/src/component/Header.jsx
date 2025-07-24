@@ -3,7 +3,6 @@ import './header.css';
 import { useState, useEffect, useRef } from 'react';
 import products from './goods';
 
-
 export default function Header() {
     const isLogin = localStorage.getItem('login');
     const navigate = useNavigate();
@@ -23,7 +22,7 @@ export default function Header() {
             audio
                 .play()
                 .then(() => {
-                    setIsPlaying(true);      // 成功播放
+                    setIsPlaying(true); // 成功播放
                     setShowMusicButton(false); // 不显示按钮
                 })
                 .catch((e) => {
@@ -33,10 +32,7 @@ export default function Header() {
         }
     }, []);
 
-    const filteredData = products.filter((item) =>
-        item.name.toLowerCase().includes(searchText.toLowerCase())
-    );
-
+    const filteredData = products.filter((item) => item.name.toLowerCase().includes(searchText.toLowerCase()));
 
     const toggleDropdown = () => {
         setIsDropdownOpen((prev) => !prev);
@@ -47,7 +43,6 @@ export default function Header() {
             navigate('/login');
         }
     };
-
 
     const toggleMusic = () => {
         const audio = audioRef.current;
@@ -63,6 +58,7 @@ export default function Header() {
             });
             setIsPlaying(true);
         }
+    };
 
     const onClickSearchItem = (id) => {
         setSearchText('');
@@ -74,7 +70,6 @@ export default function Header() {
             state: brand,
         });
         toggleDropdown(false);
-
     };
 
     return (
@@ -92,17 +87,17 @@ export default function Header() {
                         marginRight: '12%',
                         right: '0',
                         zIndex: 999,
-                        backgroundColor:"transparent",
+                        backgroundColor: 'transparent',
                         padding: '5px',
                         border: '0',
                         borderRadius: '0px',
-                        letterSpacing: "2px",
-                        cursor: 'pointer'
+                        letterSpacing: '2px',
+                        cursor: 'pointer',
                     }}
                 >
-                    <img 
-                        src={isPlaying ? "/img/stop.png" : "/img/play.png"} 
-                        alt={isPlaying ? "Pause" : "Play"}
+                    <img
+                        src={isPlaying ? '/img/stop.png' : '/img/play.png'}
+                        alt={isPlaying ? 'Pause' : 'Play'}
                         style={{ height: '60px' }}
                     />
                 </button>
@@ -141,16 +136,8 @@ export default function Header() {
                 </div>
 
                 <div className="header-icon-div">
-                    <img
-                        src="/img/account.png"
-                        className="header-icon"
-                        onClick={onClickLogin}
-                    />
-                    <img
-                        src="/img/cart.png"
-                        className="header-icon2"
-                        onClick={() => navigate('/myCart')}
-                    />
+                    <img src="/img/account.png" className="header-icon" onClick={onClickLogin} />
+                    <img src="/img/cart.png" className="header-icon2" onClick={() => navigate('/myCart')} />
                 </div>
             </div>
 
@@ -168,11 +155,7 @@ export default function Header() {
                         Brands{' '}
                         <img
                             src="/img/arrow.png"
-                            className={
-                                isDropdownOpen
-                                    ? 'header-arrow-img-up'
-                                    : 'header-arrow-img-down'
-                            }
+                            className={isDropdownOpen ? 'header-arrow-img-up' : 'header-arrow-img-down'}
                         />
                     </span>
 
