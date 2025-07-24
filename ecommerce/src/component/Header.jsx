@@ -12,6 +12,7 @@ export default function Header() {
     const [searchText, setSearchText] = useState('');
 
     const filteredData = products.filter((item) => item.name.toLowerCase().includes(searchText.toLowerCase()));
+    console.log('filter', filteredData);
 
     const toggleDropdown = () => {
         setIsDropdownOpen((prev) => !prev);
@@ -23,6 +24,18 @@ export default function Header() {
         } else {
             navigate('/login');
         }
+    };
+
+    const onClickSearchItem = (id) => {
+        setSearchText('');
+        navigate(`/product/${id}`);
+    };
+
+    const onClickBrand = (brand) => {
+        navigate(`/cardList`, {
+            state: brand,
+        });
+        toggleDropdown(false);
     };
 
     return (
@@ -45,7 +58,7 @@ export default function Header() {
                             <p className="header-search-title">PRODUCTS</p>
                             <div className="header-search-border"></div>
                             {filteredData.map((item, i) => (
-                                <li key={i} className="header-search-li">
+                                <li key={i} className="header-search-li" onClick={() => onClickSearchItem(item.id)}>
                                     {item.name}
                                 </li>
                             ))}
@@ -73,7 +86,7 @@ export default function Header() {
                 </span>
                 <div className="header-dropdown-div">
                     <span className="categories-item" onClick={toggleDropdown}>
-                        Categories{' '}
+                        Brands{' '}
                         <img
                             src="/img/arrow.png"
                             className={isDropdownOpen ? 'header-arrow-img-up' : 'header-arrow-img-down'}
@@ -82,16 +95,26 @@ export default function Header() {
 
                     {isDropdownOpen && (
                         <ul className="category-dropdown">
-                            <li>Super Nintendo</li>
-                            <li>Sega Genesis</li>
-                            <li>Game Boy</li>
-                            <li>PlayStation 1</li>
-                            <li>Nintendo 64</li>
+                            <li onClick={() => onClickBrand('AYNTEK')}>AYNTEK</li>
+                            <li onClick={() => onClickBrand('AYANEO')}>AYANEO</li>
+                            <li onClick={() => onClickBrand('ANBERNIC')}>ANBERNIC</li>
+                            <li onClick={() => onClickBrand('ANBERNICRG')}>ANBERNICRG</li>
+                            <li onClick={() => onClickBrand('GKD')}>GKD</li>
+                            <li onClick={() => onClickBrand('MIYOO')}>MIYOO</li>
+                            <li onClick={() => onClickBrand('RETROID POCKET')}>Retroid Pocket</li>
+                            <li onClick={() => onClickBrand('POWKIDDY')}>POWKIDDY</li>
                         </ul>
                     )}
                 </div>
                 <span className="categories-item">Shop Gift Guide</span>
-                <span className="categories-item">Contact</span>
+                <span
+                    className="categories-item"
+                    onClick={() => {
+                        navigate('/contact');
+                    }}
+                >
+                    Contact
+                </span>
                 <span className="categories-item2">FAQ</span>
             </div>
         </>

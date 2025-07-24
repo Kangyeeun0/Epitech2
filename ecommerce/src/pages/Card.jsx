@@ -67,7 +67,7 @@ export default function Card() {
                     }}
                 />
 
-                <div>
+                <div style={{ width: '50%' }}>
                     <h2 className="card-name">{product.name}</h2>
                     <p
                         className="card-description"
