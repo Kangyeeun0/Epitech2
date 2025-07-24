@@ -82,6 +82,7 @@
     z-index: 1;
     top: 130px;
     margin: 0;
+    margin-top: 5px;
     padding: 10px 30px;
 }
 
@@ -118,6 +119,8 @@
 .categories-item {
     margin-right: 20px;
     cursor: pointer;
+    font-size: 23px;
+    font-weight: bold;
     &:hover {
         border-bottom: 1px solid;
     }
@@ -125,6 +128,8 @@
 
 .categories-item2 {
     cursor: pointer;
+    font-size: 23px;
+    font-weight: bold;
     &:hover {
         border-bottom: 1px solid;
     }

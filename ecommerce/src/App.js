@@ -6,6 +6,8 @@ import Card from './pages/Card';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import MyCart from './pages/MyCart';
+import CardList from './component/CardList';
+import Contact from './pages/Contact';
 
 function App() {
     return (
@@ -17,6 +19,8 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/signUp" element={<Register />} />
                 <Route path="/myCart" element={<MyCart />} />
+                <Route path="/cardList" element={<CardList />} />
+                <Route path="/contact" element={<Contact />} />
             </Routes>
         </BrowserRouter>
     );
